@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>{{title}} - ImageShare</title>
+    {% else %}
+    <title>Welcome - ImageShare</title>
+    {% endif %}
+</head>
+<body>
+    <main>
+        <h1>Welcome</h1>
+        <article>
+            {% block content %}{% endblock %}
+            {% for image in images %}
+            <div>
+                <h2>{{image.title}}</h2>
+                <p>{{image.description}}</p>
+                <img src={{image.url}} height="300px" />
+                <p>Likes: {{image.likes}}</p>
+            </div>
+            {% endfor %}
+        </article>
+    </main>
+</body>
+</html>
